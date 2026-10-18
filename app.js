@@ -55,6 +55,7 @@ function go(path){ui.mobileMenu=false;if(getRoute()===path){render();window.scro
 function show(msg){ui.toast=msg;render();}
 window.addEventListener('hashchange',()=>{ui.toast='';ui.mobileMenu=false;render();window.scrollTo({top:0,behavior:'instant'});});
 document.addEventListener('click',e=>{const el=e.target.closest('[data-action]');if(!el)return;const action=el.dataset.action,v=el.dataset.value,s=D.get();switch(action){
+case 'skip-content':{const target=document.getElementById('main-content');target?.focus?.();target?.scrollIntoView?.();break;}
 case 'toggle-menu':ui.mobileMenu=!ui.mobileMenu;render();break;
 case 'reset-demo':ui.dialog='reset';render();break;
 case 'close-modal':ui.dialog='';render();break;
